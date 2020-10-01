@@ -56,14 +56,14 @@ RUN wget https://wordpress.org/latest.tar.gz && \
 	chown -R www-data:www-data /var/www/html/wordpress
 
 
-COPY ./srcs/wp-config.php ./var/www/html/wordpress
-COPY ./srcs/config.inc.php ./var/www/html/phpmyadmin/
-COPY ./srcs/hamid.sql /root/
+COPY ./srcs/wp-config.php /var/www/html/wordpress
+COPY ./srcs/config.inc.php /var/www/html/phpmyadmin/
+COPY ./srcs/wordpress.sql /root/
 COPY ./srcs/localhost.crt /root/
 COPY ./srcs/localhost.key /root/
 COPY ./srcs/script.sh ./
-COPY srcs/default ./etc/nginx/sites-available/
-COPY ./srcs/index.php ./var/www/html/
+COPY srcs/default /etc/nginx/sites-available/
+COPY ./srcs/index.php /var/www/html/
 
 RUN chmod +x script.sh
 
